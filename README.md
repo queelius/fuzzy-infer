@@ -266,12 +266,15 @@ rule = {
 }
 inf.add_rule(rule)
 
+inf.add_rule({'pred': 'is-married', 'args': [?x, ?y]
+
 # Adding multiple rules
 rules = [rule1, rule2, rule3]
 inf.add_rules(rules)
 ```
 
 ### Running Inference
+
 
 Execute the inference process to apply all applicable rules and update the KB with inferred facts:
 
