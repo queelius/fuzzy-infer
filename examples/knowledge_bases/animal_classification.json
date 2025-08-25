@@ -1,0 +1,106 @@
+{
+  "facts": [
+    {"pred": "has-hair", "args": ["dog"], "deg": 1.0},
+    {"pred": "gives-milk", "args": ["dog"], "deg": 0.0},
+    {"pred": "has-feathers", "args": ["eagle"], "deg": 1.0},
+    {"pred": "lays-eggs", "args": ["eagle"], "deg": 1.0},
+    {"pred": "has-stripes", "args": ["zebra"], "deg": 1.0},
+    {"pred": "has-hooves", "args": ["zebra"], "deg": 1.0},
+    {"pred": "eats-meat", "args": ["lion"], "deg": 1.0},
+    {"pred": "has-pointed-teeth", "args": ["lion"], "deg": 1.0},
+    {"pred": "has-claws", "args": ["lion"], "deg": 1.0}
+  ],
+  "rules": [
+    {
+      "name": "mammal-hair",
+      "cond": [
+        {"pred": "has-hair", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-mammal", "args": ["?x"], "deg": 1.0}}
+      ]
+    },
+    {
+      "name": "mammal-milk",
+      "cond": [
+        {"pred": "gives-milk", "args": ["?x"], "deg": "?d", "deg-pred": [">", "?d", 0.5]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-mammal", "args": ["?x"], "deg": "?d"}}
+      ]
+    },
+    {
+      "name": "bird-feathers",
+      "cond": [
+        {"pred": "has-feathers", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-bird", "args": ["?x"], "deg": 1.0}}
+      ]
+    },
+    {
+      "name": "bird-eggs-fly",
+      "cond": [
+        {"pred": "lays-eggs", "args": ["?x"]},
+        {"pred": "can-fly", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-bird", "args": ["?x"], "deg": 0.9}}
+      ]
+    },
+    {
+      "name": "carnivore",
+      "cond": [
+        {"pred": "eats-meat", "args": ["?x"], "deg": "?meat_deg"}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-carnivore", "args": ["?x"], "deg": "?meat_deg"}}
+      ]
+    },
+    {
+      "name": "carnivore-teeth-claws",
+      "cond": [
+        {
+          "and": [
+            {"pred": "has-pointed-teeth", "args": ["?x"]},
+            {"pred": "has-claws", "args": ["?x"]}
+          ]
+        }
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-carnivore", "args": ["?x"], "deg": 0.85}}
+      ]
+    },
+    {
+      "name": "ungulate",
+      "cond": [
+        {"pred": "is-mammal", "args": ["?x"]},
+        {"pred": "has-hooves", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-ungulate", "args": ["?x"], "deg": 1.0}}
+      ]
+    },
+    {
+      "name": "zebra-classification",
+      "cond": [
+        {"pred": "is-ungulate", "args": ["?x"]},
+        {"pred": "has-stripes", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "species", "args": ["?x", "zebra"], "deg": 0.95}}
+      ],
+      "priority": 10
+    },
+    {
+      "name": "predator",
+      "cond": [
+        {"pred": "is-carnivore", "args": ["?x"], "deg": "?c", "deg-pred": [">", "?c", 0.7]},
+        {"pred": "hunts", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-predator", "args": ["?x"], "deg": ["*", "?c", 0.9]}}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "facts": [
+    {"pred": "has-hair", "args": ["dog"], "deg": 1.0},
+    {"pred": "is-domestic", "args": ["dog"], "deg": 1.0},
+    {"pred": "is-dangerous", "args": ["dog"], "deg": 0.2},
+    {"pred": "species", "args": ["rover", "dog"], "deg": 1.0},
+    {"pred": "eats-meat", "args": ["lion"], "deg": 1.0},
+    {"pred": "is-dangerous", "args": ["lion"], "deg": 0.9}
+  ],
+  "rules": [
+    {
+      "name": "mammal-hair",
+      "cond": [
+        {"pred": "has-hair", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-mammal", "args": ["?x"], "deg": 1.0}}
+      ]
+    },
+    {
+      "name": "domestic-safe",
+      "cond": [
+        {"pred": "is-domestic", "args": ["?x"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {"pred": "is-safe", "args": ["?x"], "deg": 0.8}}
+      ]
+    }
+  ]
+}

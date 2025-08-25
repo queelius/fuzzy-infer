@@ -1,0 +1,103 @@
+{
+  "facts": [
+    {"pred": "symptom", "args": ["patient1", "fever"], "deg": 0.8},
+    {"pred": "symptom", "args": ["patient1", "cough"], "deg": 0.6},
+    {"pred": "symptom", "args": ["patient1", "fatigue"], "deg": 0.7},
+    {"pred": "test-result", "args": ["patient1", "covid", "negative"], "deg": 0.95},
+    {"pred": "vaccination", "args": ["patient1", "flu"], "deg": 1.0},
+    {"pred": "age-group", "args": ["patient1", "adult"], "deg": 1.0}
+  ],
+  "rules": [
+    {
+      "name": "flu-diagnosis",
+      "cond": [
+        {"pred": "symptom", "args": ["?p", "fever"], "deg": "?fever", "deg-pred": [">", "?fever", 0.6]},
+        {"pred": "symptom", "args": ["?p", "cough"], "deg": "?cough"},
+        {"pred": "symptom", "args": ["?p", "fatigue"], "deg": "?fatigue"}
+      ],
+      "actions": [
+        {"action": "add", "fact": {
+          "pred": "possible-diagnosis", 
+          "args": ["?p", "flu"], 
+          "deg": ["*", ["min", "?fever", "?cough", "?fatigue"], 0.7]
+        }}
+      ]
+    },
+    {
+      "name": "cold-diagnosis",
+      "cond": [
+        {"pred": "symptom", "args": ["?p", "cough"], "deg": "?c"},
+        {"not": {"pred": "symptom", "args": ["?p", "fever"]}}
+      ],
+      "actions": [
+        {"action": "add", "fact": {
+          "pred": "possible-diagnosis",
+          "args": ["?p", "cold"],
+          "deg": ["*", "?c", 0.8]
+        }}
+      ]
+    },
+    {
+      "name": "reduce-flu-if-vaccinated",
+      "cond": [
+        {"pred": "possible-diagnosis", "args": ["?p", "flu"], "deg": "?flu_deg"},
+        {"pred": "vaccination", "args": ["?p", "flu"], "deg": "?vac"}
+      ],
+      "actions": [
+        {"action": "modify", "fact": {
+          "pred": "possible-diagnosis",
+          "args": ["?p", "flu"],
+          "deg": ["*", "?flu_deg", ["-", 1.0, ["*", "?vac", 0.3]]]
+        }}
+      ],
+      "priority": -5
+    },
+    {
+      "name": "severity-assessment",
+      "cond": [
+        {"pred": "symptom", "args": ["?p", "fever"], "deg": "?f", "deg-pred": [">", "?f", 0.7]},
+        {"or": [
+          {"pred": "age-group", "args": ["?p", "elderly"]},
+          {"pred": "age-group", "args": ["?p", "child"]}
+        ]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {
+          "pred": "severity",
+          "args": ["?p", "high"],
+          "deg": ["min", "?f", 0.9]
+        }}
+      ]
+    },
+    {
+      "name": "treatment-recommendation",
+      "cond": [
+        {"pred": "possible-diagnosis", "args": ["?p", "?disease"], "deg": "?d", "deg-pred": [">", "?d", 0.5]},
+        {"pred": "severity", "args": ["?p", "?level"]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {
+          "pred": "recommend-treatment",
+          "args": ["?p", "?disease", "?level"],
+          "deg": "?d"
+        }}
+      ]
+    },
+    {
+      "name": "rest-recommendation",
+      "cond": [
+        {"and": [
+          {"pred": "symptom", "args": ["?p", "fatigue"], "deg": "?f"},
+          {"pred": "possible-diagnosis", "args": ["?p", "?any"]}
+        ]}
+      ],
+      "actions": [
+        {"action": "add", "fact": {
+          "pred": "recommendation",
+          "args": ["?p", "rest"],
+          "deg": ["max", "?f", 0.6]
+        }}
+      ]
+    }
+  ]
+}

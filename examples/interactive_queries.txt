@@ -1,0 +1,192 @@
+# FuzzyInfer Interactive Session Query Examples
+# Copy and paste these commands into an interactive session
+
+# ============================================
+# SETUP: Animal Classification
+# ============================================
+
+clear
+
+# Add a variety of animals with different characteristics
+fact has-hair cat 1.0
+fact has-claws cat 1.0
+fact eats-meat cat 0.8
+fact is-domestic cat 1.0
+fact has-whiskers cat 1.0
+
+fact has-feathers parrot 1.0
+fact can-fly parrot 0.9
+fact lays-eggs parrot 1.0
+fact is-colorful parrot 1.0
+
+fact has-scales snake 1.0
+fact is-cold-blooded snake 1.0
+fact eats-meat snake 1.0
+fact is-venomous snake 0.7
+
+fact has-hair whale 1.0
+fact lives-in-water whale 1.0
+fact is-large whale 1.0
+fact gives-milk whale 1.0
+
+fact has-wings penguin 1.0
+fact lays-eggs penguin 1.0
+fact can-fly penguin 0.0
+fact lives-in-cold penguin 1.0
+fact eats-fish penguin 1.0
+
+# Add classification rules
+rule {"name": "mammal-hair", "cond": [{"pred": "has-hair", "args": ["?x"]}], "actions": [{"action": "add", "fact": {"pred": "is-mammal", "args": ["?x"], "deg": 1.0}}]}
+
+rule {"name": "mammal-milk", "cond": [{"pred": "gives-milk", "args": ["?x"], "deg": "?d", "deg-pred": [">", "?d", 0.5]}], "actions": [{"action": "add", "fact": {"pred": "is-mammal", "args": ["?x"], "deg": "?d"}}]}
+
+rule {"name": "bird-feathers", "cond": [{"pred": "has-feathers", "args": ["?x"]}], "actions": [{"action": "add", "fact": {"pred": "is-bird", "args": ["?x"], "deg": 1.0}}]}
+
+rule {"name": "bird-eggs-wings", "cond": [{"pred": "lays-eggs", "args": ["?x"]}, {"pred": "has-wings", "args": ["?x"]}], "actions": [{"action": "add", "fact": {"pred": "is-bird", "args": ["?x"], "deg": 0.9}}]}
+
+rule {"name": "reptile", "cond": [{"pred": "has-scales", "args": ["?x"]}, {"pred": "is-cold-blooded", "args": ["?x"]}], "actions": [{"action": "add", "fact": {"pred": "is-reptile", "args": ["?x"], "deg": 1.0}}]}
+
+rule {"name": "carnivore", "cond": [{"pred": "eats-meat", "args": ["?x"], "deg": "?d", "deg-pred": [">", "?d", 0.6]}], "actions": [{"action": "add", "fact": {"pred": "is-carnivore", "args": ["?x"], "deg": "?d"}}]}
+
+rule {"name": "marine-mammal", "cond": [{"pred": "is-mammal", "args": ["?x"]}, {"pred": "lives-in-water", "args": ["?x"]}], "actions": [{"action": "add", "fact": {"pred": "is-marine-mammal", "args": ["?x"], "deg": 1.0}}]}
+
+rule {"name": "flightless-bird", "cond": [{"pred": "is-bird", "args": ["?x"]}, {"pred": "can-fly", "args": ["?x"], "deg": "?f", "deg-pred": ["<", "?f", 0.1]}], "actions": [{"action": "add", "fact": {"pred": "is-flightless-bird", "args": ["?x"], "deg": 1.0}}]}
+
+rule {"name": "pet-animal", "cond": [{"pred": "is-domestic", "args": ["?x"]}, {"or": [{"pred": "is-mammal", "args": ["?x"]}, {"pred": "is-bird", "args": ["?x"]}]}], "actions": [{"action": "add", "fact": {"pred": "is-pet", "args": ["?x"], "deg": 0.9}}]}
+
+rule {"name": "dangerous", "cond": [{"or": [{"pred": "is-carnivore", "args": ["?x"], "deg": "?c", "deg-pred": [">", "?c", 0.8]}, {"pred": "is-venomous", "args": ["?x"], "deg": "?v", "deg-pred": [">", "?v", 0.5]}]}], "actions": [{"action": "add", "fact": {"pred": "is-dangerous", "args": ["?x"], "deg": 0.85}}]}
+
+# Run inference
+run
+
+# ============================================
+# QUERIES TO TRY
+# ============================================
+
+# 1. Basic classification queries
+query is-mammal
+query is-bird
+query is-reptile
+query is-carnivore
+
+# 2. Specific animal queries
+query is-mammal cat
+query is-mammal whale
+query is-bird parrot
+query is-bird penguin
+query is-reptile snake
+
+# 3. Derived classification queries
+query is-marine-mammal
+query is-flightless-bird
+query is-pet
+query is-dangerous
+
+# 4. Query by characteristic
+query has-hair
+query can-fly
+query eats-meat
+query lives-in-water
+query is-venomous
+
+# 5. Complex queries for specific animals
+query is-carnivore cat
+query is-carnivore snake
+query is-pet cat
+query is-pet parrot
+query is-dangerous snake
+
+# 6. Show all facts (to see inferred facts)
+facts
+
+# ============================================
+# FUZZY LOGIC QUERIES
+# ============================================
+
+# Add animals with uncertain characteristics
+fact has-hair platypus 1.0
+fact lays-eggs platypus 1.0
+fact has-bill platypus 1.0
+fact is-venomous platypus 0.3
+fact gives-milk platypus 0.8
+
+fact can-fly bat 1.0
+fact has-hair bat 1.0
+fact is-nocturnal bat 1.0
+fact eats-insects bat 0.6
+fact eats-fruit bat 0.4
+
+run
+
+# Query these edge cases
+query is-mammal platypus
+query is-dangerous platypus
+query is-carnivore bat
+
+# ============================================
+# WEATHER PREDICTION QUERIES (different KB)
+# ============================================
+
+# If using weather_prediction.yaml:
+# query precipitation
+# query storm-possible
+# query recommendation
+# query weather-changing
+# query storm-severity
+
+# ============================================
+# MEDICAL DIAGNOSIS QUERIES (different KB)
+# ============================================
+
+# If using medical_diagnosis.json:
+# query possible-diagnosis
+# query possible-diagnosis patient1
+# query severity
+# query recommendation patient1
+# query recommend-treatment
+
+# ============================================
+# ADVANCED QUERIES WITH PATTERNS
+# ============================================
+
+# Note: The current implementation doesn't support pattern matching in queries,
+# but you can query for all facts of a predicate and filter manually:
+
+query species  # Get all species classifications
+query is-carnivore  # Get all carnivores
+query is-dangerous  # Get all dangerous animals
+
+# ============================================
+# SAVING AND LOADING
+# ============================================
+
+# Save your session
+save my_animal_kb.json
+
+# Clear and reload
+clear
+load my_animal_kb.json
+facts
+
+# ============================================
+# EXPERIMENTAL QUERIES
+# ============================================
+
+# Try queries that should return empty (no matches)
+query can-talk
+query is-extinct
+query has-gills
+query is-insect
+
+# Add contradictory facts to see fuzzy OR behavior
+fact eats-meat parrot 0.3  # Parrot sometimes eats meat?
+run
+query is-carnivore parrot  # Should show low degree
+
+# Test rule priority by adding competing rules
+rule {"name": "all-animals-cute", "cond": [{"or": [{"pred": "is-mammal", "args": ["?x"]}, {"pred": "is-bird", "args": ["?x"]}]}], "actions": [{"action": "add", "fact": {"pred": "is-cute", "args": ["?x"], "deg": 0.7}}], "priority": -10}
+
+rule {"name": "dangerous-not-cute", "cond": [{"pred": "is-dangerous", "args": ["?x"]}], "actions": [{"action": "remove", "fact": {"pred": "is-cute", "args": ["?x"]}}], "priority": 10}
+
+run
+query is-cute

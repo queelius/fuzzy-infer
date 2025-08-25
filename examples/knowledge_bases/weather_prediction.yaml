@@ -1,0 +1,140 @@
+# Weather prediction knowledge base in YAML format
+# Demonstrates fuzzy logic with degree calculations
+
+facts:
+  # Current observations
+  - pred: temperature
+    args: [today, high]
+    deg: 0.85
+  
+  - pred: humidity
+    args: [today, high]
+    deg: 0.75
+  
+  - pred: pressure
+    args: [today, falling]
+    deg: 0.6
+  
+  - pred: clouds
+    args: [today, cumulus]
+    deg: 0.7
+  
+  - pred: wind-speed
+    args: [today, moderate]
+    deg: 0.5
+
+rules:
+  # Rule: High temperature and humidity suggest rain
+  - name: rain-from-temp-humidity
+    cond:
+      - pred: temperature
+        args: ["?day", high]
+        deg: "?temp"
+        deg-pred: [">", "?temp", 0.7]
+      - pred: humidity
+        args: ["?day", high]
+        deg: "?hum"
+        deg-pred: [">", "?hum", 0.6]
+    actions:
+      - action: add
+        fact:
+          pred: rain-likely
+          args: ["?day"]
+          deg: ["*", ["min", "?temp", "?hum"], 0.8]
+    priority: 5
+
+  # Rule: Falling pressure indicates weather change
+  - name: pressure-change
+    cond:
+      - pred: pressure
+        args: ["?day", falling]
+        deg: "?p"
+    actions:
+      - action: add
+        fact:
+          pred: weather-changing
+          args: ["?day"]
+          deg: "?p"
+
+  # Rule: Cumulus clouds + weather change = storm possible
+  - name: storm-prediction
+    cond:
+      - pred: clouds
+        args: ["?day", cumulus]
+        deg: "?cloud"
+      - pred: weather-changing
+        args: ["?day"]
+        deg: "?change"
+    actions:
+      - action: add
+        fact:
+          pred: storm-possible
+          args: ["?day"]
+          deg: ["*", ["max", "?cloud", "?change"], 0.7]
+
+  # Rule: Multiple indicators for rain
+  - name: rain-multiple-factors
+    cond:
+      - or:
+        - pred: rain-likely
+          args: ["?day"]
+          deg: "?r1"
+        - pred: storm-possible
+          args: ["?day"]
+          deg: "?r2"
+    actions:
+      - action: add
+        fact:
+          pred: precipitation
+          args: ["?day", rain]
+          deg: ["max", "?r1", "?r2"]
+
+  # Rule: Suggest umbrella if precipitation likely
+  - name: umbrella-suggestion
+    cond:
+      - pred: precipitation
+        args: ["?day", "?type"]
+        deg: "?precip"
+        deg-pred: [">=", "?precip", 0.5]
+    actions:
+      - action: add
+        fact:
+          pred: recommendation
+          args: ["?day", bring-umbrella]
+          deg: "?precip"
+
+  # Rule: Wind affects storm severity
+  - name: storm-severity
+    cond:
+      - pred: storm-possible
+        args: ["?day"]
+        deg: "?storm"
+      - pred: wind-speed
+        args: ["?day", "?speed"]
+        deg: "?wind"
+    actions:
+      - action: add
+        fact:
+          pred: storm-severity
+          args: ["?day", "?speed"]
+          deg: ["+", ["*", "?storm", 0.5], ["*", "?wind", 0.5]]
+      - action: modify
+        fact:
+          pred: recommendation
+          args: ["?day", stay-indoors]
+          deg: ["max", "?storm", 0.3]
+
+  # Rule: Clear contradictions - can't be both sunny and stormy
+  - name: contradiction-handler
+    cond:
+      - pred: weather
+        args: ["?day", sunny]
+      - pred: storm-possible
+        args: ["?day"]
+        deg: "?storm"
+        deg-pred: [">", "?storm", 0.7]
+    actions:
+      - action: remove
+        fact:
+          pred: weather
+          args: ["?day", sunny]

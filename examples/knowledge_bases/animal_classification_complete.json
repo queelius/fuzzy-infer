@@ -1,0 +1,1124 @@
+{
+    "facts": [
+        {
+            "pred": "has-hair",
+            "args": [
+                "dog"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "dog"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "dog"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-domestic",
+            "args": [
+                "dog"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "dog"
+            ],
+            "deg": 0.7
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "dog"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "cat"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "cat"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "cat"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-domestic",
+            "args": [
+                "cat"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "cat"
+            ],
+            "deg": 0.8
+        },
+        {
+            "pred": "has-claws",
+            "args": [
+                "cat"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "cat"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "lion"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-pointed-teeth",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-claws",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "hunts",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-savanna",
+            "args": [
+                "lion"
+            ],
+            "deg": 0.8
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "lion"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "tiger"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-stripes",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-pointed-teeth",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-claws",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "hunts",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-jungle",
+            "args": [
+                "tiger"
+            ],
+            "deg": 0.7
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "tiger"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "zebra"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-stripes",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hooves",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-grass",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-savanna",
+            "args": [
+                "zebra"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "zebra"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "horse"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hooves",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-grass",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-domestic",
+            "args": [
+                "horse"
+            ],
+            "deg": 0.8
+        },
+        {
+            "pred": "can-be-ridden",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "horse"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-four-legs",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hooves",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-grass",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-domestic",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-tail",
+            "args": [
+                "cow"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-feathers",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lays-eggs",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-wings",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "can-fly",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "eagle"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-talons",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-sharp-beak",
+            "args": [
+                "eagle"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "hunts",
+            "args": [
+                "eagle"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "has-feathers",
+            "args": [
+                "parrot"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lays-eggs",
+            "args": [
+                "parrot"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-wings",
+            "args": [
+                "parrot"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "can-fly",
+            "args": [
+                "parrot"
+            ],
+            "deg": 0.95
+        },
+        {
+            "pred": "is-colorful",
+            "args": [
+                "parrot"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "can-talk",
+            "args": [
+                "parrot"
+            ],
+            "deg": 0.7
+        },
+        {
+            "pred": "is-domestic",
+            "args": [
+                "parrot"
+            ],
+            "deg": 0.6
+        },
+        {
+            "pred": "eats-seeds",
+            "args": [
+                "parrot"
+            ],
+            "deg": 0.8
+        },
+        {
+            "pred": "has-feathers",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lays-eggs",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-wings",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "can-fly",
+            "args": [
+                "penguin"
+            ],
+            "deg": 0.0
+        },
+        {
+            "pred": "can-swim",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-fish",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-cold",
+            "args": [
+                "penguin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-fins",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-gills",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-water",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "eats-meat",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-pointed-teeth",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-dangerous",
+            "args": [
+                "shark"
+            ],
+            "deg": 0.8
+        },
+        {
+            "pred": "can-swim",
+            "args": [
+                "shark"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-hair",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 0.1
+        },
+        {
+            "pred": "gives-milk",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "lives-in-water",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "has-fins",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "can-swim",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "is-intelligent",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 0.9
+        },
+        {
+            "pred": "eats-fish",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        },
+        {
+            "pred": "breathes-air",
+            "args": [
+                "dolphin"
+            ],
+            "deg": 1.0
+        }
+    ],
+    "rules": [
+        {
+            "name": "mammal-hair",
+            "cond": [
+                {
+                    "pred": "has-hair",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?h",
+                    "deg-pred": [
+                        ">",
+                        "?h",
+                        0.05
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-mammal",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "mammal-milk",
+            "cond": [
+                {
+                    "pred": "gives-milk",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?d",
+                    "deg-pred": [
+                        ">",
+                        "?d",
+                        0.5
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-mammal",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": "?d"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "bird-feathers",
+            "cond": [
+                {
+                    "pred": "has-feathers",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-bird",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fish-classification",
+            "cond": [
+                {
+                    "pred": "has-gills",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "has-fins",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "lives-in-water",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-fish",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "carnivore",
+            "cond": [
+                {
+                    "pred": "eats-meat",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?meat_deg",
+                    "deg-pred": [
+                        ">",
+                        "?meat_deg",
+                        0.5
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-carnivore",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": "?meat_deg"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "herbivore",
+            "cond": [
+                {
+                    "pred": "eats-grass",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-herbivore",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ungulate",
+            "cond": [
+                {
+                    "pred": "is-mammal",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "has-hooves",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-ungulate",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "predator",
+            "cond": [
+                {
+                    "pred": "is-carnivore",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?c",
+                    "deg-pred": [
+                        ">",
+                        "?c",
+                        0.7
+                    ]
+                },
+                {
+                    "pred": "hunts",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-predator",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": [
+                            "*",
+                            "?c",
+                            0.95
+                        ]
+                    }
+                }
+            ],
+            "priority": 5
+        },
+        {
+            "name": "pet-animal",
+            "cond": [
+                {
+                    "pred": "is-domestic",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?d",
+                    "deg-pred": [
+                        ">",
+                        "?d",
+                        0.5
+                    ]
+                },
+                {
+                    "or": [
+                        {
+                            "pred": "is-mammal",
+                            "args": [
+                                "?x"
+                            ]
+                        },
+                        {
+                            "pred": "is-bird",
+                            "args": [
+                                "?x"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-pet",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": "?d"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "big-cat",
+            "cond": [
+                {
+                    "pred": "is-mammal",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "is-predator",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "or": [
+                        {
+                            "pred": "has-stripes",
+                            "args": [
+                                "?x"
+                            ]
+                        },
+                        {
+                            "pred": "lives-in-savanna",
+                            "args": [
+                                "?x"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-big-cat",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 0.95
+                    }
+                }
+            ],
+            "priority": 10
+        },
+        {
+            "name": "aquatic-animal",
+            "cond": [
+                {
+                    "pred": "lives-in-water",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "can-swim",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-aquatic",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "marine-mammal",
+            "cond": [
+                {
+                    "pred": "is-mammal",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "is-aquatic",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-marine-mammal",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "flightless-bird",
+            "cond": [
+                {
+                    "pred": "is-bird",
+                    "args": [
+                        "?x"
+                    ]
+                },
+                {
+                    "pred": "can-fly",
+                    "args": [
+                        "?x"
+                    ],
+                    "deg": "?f",
+                    "deg-pred": [
+                        "<",
+                        "?f",
+                        0.1
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-flightless-bird",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "four-legged-animal",
+            "cond": [
+                {
+                    "pred": "has-four-legs",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-quadruped",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "has-tail-classification",
+            "cond": [
+                {
+                    "pred": "has-tail",
+                    "args": [
+                        "?x"
+                    ]
+                }
+            ],
+            "actions": [
+                {
+                    "action": "add",
+                    "fact": {
+                        "pred": "is-tailed-animal",
+                        "args": [
+                            "?x"
+                        ],
+                        "deg": 1.0
+                    }
+                }
+            ]
+        }
+    ]
+}
